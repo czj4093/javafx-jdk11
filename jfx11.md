@@ -48,6 +48,12 @@ javafx
 			text
 			transform
 		stage	舞台
+			class DirectoryChooser	提供对标准目录选择器对话框的支持。这些对话框具有独立于JavaFX的平台UI组件的外观和感觉。在某些平台上，文件访问可能受到限制，也可能不是用户模型的一部分(例如，在一些移动或嵌入式设备上)，打开目录对话框可能总是导致no-op(即返回空文件)
+			class FileChooser	提供对标准平台文件对话框的支持。这些对话框具有独立于JavaFX的平台UI组件的外观和感觉。在某些平台上，文件访问可能受到限制，也可能不是用户模型的一部分(例如，在一些移动设备或嵌入式设备上)，打开文件对话框可能总是导致no-op(即返回空文件)
+			enum Modality	这个枚举定义了Stage可能的模式类型
+			class Popup	弹出窗口是一个特殊的窗口状容器，用于场景图。它通常用于通知、下拉框、菜单等工具提示。弹出窗口没有任何修饰，本质上充当一个没有修饰的特殊场景/窗口，是透明的，并且填充为空。
+			class PopupWindow	PopupWindow是基于弹出窗口的各种不同类型的父窗口，包括popup和Tooltip以及ContextMenu
+			class Screen	描述图形目标(如监视器)的特征。在虚拟设备多屏幕环境中，桌面区域可以跨多个物理屏幕设备，屏幕对象的边界相对于screen .primary
 			class Stage	Stage类是顶级JavaFX容器。初级阶段由平台构成。应用程序可以构造其他阶段对象。必须在JavaFX应用程序线程上构造和修改Stage对象。
 	javafx.media	定义用于播放媒体和音频内容的api，作为JavaFX UI工具包的一部分，包括MediaView和MediaPlayer
 		scene.media
