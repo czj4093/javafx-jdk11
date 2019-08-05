@@ -47,6 +47,10 @@ javafx
 			shape
 			text
 			transform
+			enum AccessibleAction	该枚举描述了辅助技术的作用 例如屏幕阅读器可以从场景图中请求
+			enum AccessibleAttribute	此枚举描述辅助技术的属性 例如屏幕阅读器可以从场景图中请求
+			enum AccessibleRole	这个枚举描述了Node的可访问角色
+			class AmbientLight	定义环境光源对象。环境光是一种光源那似乎来自四面八方
 		stage	舞台
 			class DirectoryChooser	提供对标准目录选择器对话框的支持。这些对话框具有独立于JavaFX的平台UI组件的外观和感觉。在某些平台上，文件访问可能受到限制，也可能不是用户模型的一部分(例如，在一些移动或嵌入式设备上)，打开目录对话框可能总是导致no-op(即返回空文件)
 			class FileChooser	提供对标准平台文件对话框的支持。这些对话框具有独立于JavaFX的平台UI组件的外观和感觉。在某些平台上，文件访问可能受到限制，也可能不是用户模型的一部分(例如，在一些移动设备或嵌入式设备上)，打开文件对话框可能总是导致no-op(即返回空文件)
@@ -55,6 +59,9 @@ javafx
 			class PopupWindow	PopupWindow是基于弹出窗口的各种不同类型的父窗口，包括popup和Tooltip以及ContextMenu
 			class Screen	描述图形目标(如监视器)的特征。在虚拟设备多屏幕环境中，桌面区域可以跨多个物理屏幕设备，屏幕对象的边界相对于screen .primary
 			class Stage	Stage类是顶级JavaFX容器。初级阶段由平台构成。应用程序可以构造其他阶段对象。必须在JavaFX应用程序线程上构造和修改Stage对象。
+			enum StageStyle	这个enum为Stage定义了可能的样式
+			class Window	一个顶层窗口，其中承载场景，并与用户交互。一个窗口可能是一个舞台，弹出窗口，或其他这样的顶层窗口
+			class WindowEvent	与窗口显示/隐藏操作相关的事件
 	javafx.media	定义用于播放媒体和音频内容的api，作为JavaFX UI工具包的一部分，包括MediaView和MediaPlayer
 		scene.media
 	javafx.swing	为JavaFX UI工具包中包含的JavaFX / Swing互操作支持定义api，包括SwingNode(用于在JavaFX应用程序中嵌入Swing)和JFXPanel(用于在Swing应用程序中嵌入JavaFX)
