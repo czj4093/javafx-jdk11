@@ -163,16 +163,72 @@ SceneAntialiasing类指定所需的抗锯齿级别。场景反混叠主要用于
 
 子场景类是场景图中内容的容器。子场景提供了场景的不同部分的分离，每个部分都可以使用不同的摄像机、深度缓冲区或场景抗混叠来呈现。子场景嵌入到主场景或其他子场景中
 
-### canvas
-### effect
-### image
-### input
-### layout
-### paint
-### robot
-### shape
-### text
-### transform
+### canvas 画布
+**class Canvas**
+
+Canvas是可以使用GraphicsContext提供的一组图形命令在上面绘制的图像
+
+**class GraphicsContext**
+
+该类用于使用缓冲区向画布发出绘制调用。每次调用都将必要的参数推入缓冲区，然后在脉冲结束时由呈现线程将这些参数呈现到画布节点的图像上
+
+### effect 材质
+### image 图像
+### input 输入
+### layout 布局
+**class AnchorPane**
+
+AnchorPane允许将子节点的边缘锚定到AnchorPane边缘的偏移量上。如果AnchorPane设置了边框和/或填充，则偏移量将从这些嵌入的内边缘测量。AnchorPane列出每个托管子节点，而不考虑子节点的可见属性值;所有布局计算都忽略非托管子元素。AnchorPane可以使用CSS设置背景和边框样式。有关详细信息，请参见Region超类
+
+**class Background**
+
+一个Region的背景。背景是一个不可变的对象，它封装了呈现Region背景所需的全部数据集。因为这个类是不可变的，所以您可以在许多不同的Region上自由地重用相同的背景。
+
+**class BackgroundConverter**
+
+将-fx-background项的CSS转换为背景
+
+**class BackgroundFill**
+
+指示如何填充Region背景的填充和关联属性。因为BackgroundFill是一个不可变的对象，所以它可以安全地在任何缓存中使用，并且可以安全地在多个Region之间或同一Region内多次重用。所有的背景填充物都是按顺序绘制的。当应用于具有定义形状的Region时，角半径将被忽略
+
+**class BackgroundImage**
+
+定义描述如何将图像呈现为某个Region的背景的属性。BackgroundImage必须指定一个图像(不能为空)。#getRepeatX() repeatX和#getRepeatY() repeatY属性定义了如何在每个方向上重复图像。位置属性定义如何在区域上定位图像，而getSize() size属性定义图像在区域上的大小。例如，size可以使用BackgroundSize#isCover() cover = true来定义，这意味着应该拉伸图像以覆盖Region的整个呈现表面。因为BackgroundImage是不可变的，所以可以安全地在任何缓存中使用它，也可以安全地在多个Region之间重用它
+
+**class BackgroundPosition**
+
+表示BackgroundImage在Region绘图区域中的位置
+
+**enum BackgroundRepeat**
+
+枚举用于在背景中重复图像的选项
+
+**class BackgroundSize**
+
+定义BackgroundImage相对于其样式化的区域应该填充的区域的大小。有几个属性的值优先于其他属性。特别是有4个关键属性，宽度、高度、包含和覆盖。宽度和高度都是相互独立的，但是它们都与包容和覆盖相互作用
+
+**class Border**
+
+一个Region的边界。边界是一个不可变的对象，它封装了呈现Region边界所需的全部数据集。因为这个类是不可变的，所以您可以在许多不同的Region上自由地重用相同的边界
+
+**class BorderConverter**
+
+将-fx-border项的CSS转换为边界
+
+**class BorderImage**
+
+定义属性，描述如何将图像呈现为某个区域的边框。边界映像必须指定一个映像(不能为空)。repeatX和repeatY属性定义了如何在每个方向上重复图像。slice属性定义了如何对图像进行切片，使其可以在区域内进行拉伸，而width则定义了区域上要填充边框图像的区域。最后，这些偏移量定义了边界延伸到边界边缘的距离。BorderImage的偏移量对边界的偏移量有贡献，而边界的偏移量又对区域的边界有贡献
+
+**class BorderPane**
+### paint 画图
+### robot 机器人
+**class Robot**
+
+机器人用于模拟用户交互，例如在键盘上键入键和使用鼠标，以及不需要. scene实例就可以捕获图形信息。机器人对象必须在JavaFX应用程序线程上构造和使用
+### shape 形状
+### text 文本
+### transform 转换
 ## stage	舞台
 class DirectoryChooser	
 
