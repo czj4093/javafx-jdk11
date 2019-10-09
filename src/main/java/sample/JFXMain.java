@@ -14,6 +14,8 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.bson.Document;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 import java.util.function.Consumer;
 
 /**
@@ -52,6 +54,12 @@ public class JFXMain extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Properties prop = new Properties();
+        prop.load(getClass().getResourceAsStream("/filedConfig.properties"));
+        if (prop.size() > 0) {
+            System.out.println(prop.size());
+            stop();
+        }
         MongoClient mongoClient = new MongoClient("localhost", 27017);
         MongoDatabase mongoDatabase = mongoClient.getDatabase("hbck");
         MongoCollection<Document> collection = mongoDatabase.getCollection("bookSource");
