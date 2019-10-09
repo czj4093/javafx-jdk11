@@ -176,9 +176,33 @@ Canvas是可以使用GraphicsContext提供的一组图形命令在上面绘制�
 ### image 图像
 ### input 输入
 ### layout 布局
-**class AnchorPane**
+**class public class AnchorPane extends Pane**
 
 AnchorPane允许将子节点的边缘锚定到AnchorPane边缘的偏移量上。如果AnchorPane设置了边框和/或填充，则偏移量将从这些嵌入的内边缘测量。AnchorPane列出每个托管子节点，而不考虑子节点的可见属性值;所有布局计算都忽略非托管子元素。AnchorPane可以使用CSS设置背景和边框样式。有关详细信息，请参见Region超类
+
+public AnchorPane()
+public AnchorPane(Node... children)
+
+public static void setTopAnchor(Node child, Double value)
+public static Double getTopAnchor(Node child)
+public static void setLeftAnchor(Node child, Double value)
+public static Double getLeftAnchor(Node child)
+public static void setBottomAnchor(Node child, Double value)
+public static Double getBottomAnchor(Node child)
+public static void setRightAnchor(Node child, Double value)
+public static Double getRightAnchor(Node child)
+public static void clearConstraints(Node child)
+
+@Override protected double computeMinWidth(double height)
+@Override protected double computeMinHeight(double width)
+@Override protected double computePrefWidth(double height)
+@Override protected double computePrefHeight(double width)
+@Override protected void layoutChildren()
+
+private double computeWidth(final boolean minimum, final double height)
+private double computeHeight(final boolean minimum, final double width)
+private double computeChildWidth(Node child, Double leftAnchor, Double rightAnchor, double areaWidth, double height)
+private double computeChildHeight(Node child, Double topAnchor, Double bottomAnchor, double areaHeight, double width)
 
 **class Background**
 
@@ -271,10 +295,18 @@ GridPane将它的子元素放在一个由行和列组成的灵活网格中。如
 
 HBox将它的子元素放在一个水平的行中。如果hbox设置了边框和/或填充，那么内容将被放置在那些insets里。
 
-**class Pane**
+**public class Pane extends Region**
 
 需要将子列表公开为公共的布局窗格的基类以便子类的用户可以自由添加/删除子类。如果需要对子元素进行绝对定位，则可以直接使用该类，因为该类只执行将可调整大
 小的子元素调整为其首选大小之外的布局。应用程序的职责是定位子元素，因为窗格在布局期间不显示位置。
+
+static void setConstraint(Node node, Object key, Object value)
+static Object getConstraint(Node node, Object key)
+
+public Pane()
+public Pane(Node... children)
+
+@Override public ObservableList<Node> getChildren()
 
 **enum Priority**
 
